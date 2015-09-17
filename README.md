@@ -2,7 +2,7 @@
 My C / C++ exercise demos.
 
 # Comments
-Created by ÎâºÀ½Ü on 2015/9/17.
+Created by å´è±ªæ° on 2015/9/17.
 
 License
 ========
