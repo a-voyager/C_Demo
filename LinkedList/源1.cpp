@@ -61,7 +61,7 @@ bool deleteData(Node *list,int val){
 
 int main(){
 	Node *list = creatList();		//创建链表
-	int data = INT_MAX;
+	int data = INT_MAX;				//整数最大值
 	while (data != 0){
 		scanf_s("%d", &data);
 		insertData(list, data);		//插入元素
