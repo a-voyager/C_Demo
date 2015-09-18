@@ -1,0 +1,23 @@
+本文主要讲述C/C++的部分重难知识点
+
+一、结构体和联合体
+	结构体：struct
+		内部各成员共组为一个数据类型
+		各成员拥有各自的内存空间，总内存为所有成员内存之和
+		eg: typedef struct Student {
+			string name;
+			int age;
+			IDcard id;	//在下文中定义
+		}STUDENT a, b;
+			a.name = "zhangsan"; a.age = 20; a.id.hasId = false; 
+
+	联合体：union
+		内部各成员只能选择一项使用
+		各成员同时共享一块内存空间，总内存为成员中最大者的内存
+		eg:	typedef union IDcard {
+			bool hasId;	//是否具有Id 布尔值数据类型:只能取true或false 
+			long idNum;
+		}ID_CARD id1, id2;
+			id1.idNum = 2015001;
+			// id1.hasId = false;	//此处错误，联合体不能同时拥有两个成员
+			id1.hasId = false;		//正确
