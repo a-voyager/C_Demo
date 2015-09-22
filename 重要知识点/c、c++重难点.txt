@@ -26,11 +26,25 @@
 二、指针函数和函数指针
 	指针函数：返回值为指针的函数
 		格式：类型说明符 * 函数名(参数)
+		eg：int* max(int *a, int *b){	//传入两个数（指针传入）	//注意 值传递 引用传递的区别
+			return a>b ? &a : &b;	
+		}
 
 	函数指针：指向函数的指针
 		格式：类型说明符 (*函数名)(参数)
+		eg：void function(){}	//一个函数
+			void (*fun_ptr)();
+			fun_ptr = function;	//或者 &function 给指针赋值
+			(*fun_ptr)();		//使用指针调用function函数
 
 
 三、指针常量和常量指针
-	指针常量：
-	常量指针：	
+	指针常量：const修饰指针
+			int a；
+			int * const p = &a	//指针常量，*p可以修改*p = 8；（OK）
+								//p不可以修改 p++（ERROR）
+
+	常量指针：const修饰int
+			int a，b；
+			const int *p = &a；	//常量指针，*p不可修改 *p = 8；（ERROR）
+								//p 可以修改 p = &b  （OK）
