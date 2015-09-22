@@ -1,5 +1,5 @@
 本文主要讲述C/C++的部分重难知识点
-												Created by WuHaojie on 2015/09/18
+																	Created by WuHaojie on 2015/09/18
 一、结构体和联合体
 	结构体：struct
 		内部各成员共组为一个数据类型
@@ -41,10 +41,30 @@
 三、指针常量和常量指针
 	指针常量：const修饰指针
 			int a；
-			int * const p = &a	//指针常量，*p可以修改*p = 8；（OK）
+			int * const p = &a	//*p可以修改*p = 8；（OK）
 								//p不可以修改 p++（ERROR）
 
 	常量指针：const修饰int
 			int a，b；
-			const int *p = &a；	//常量指针，*p不可修改 *p = 8；（ERROR）
+			const int *p = &a；	//*p不可修改 *p = 8；（ERROR）
 								//p 可以修改 p = &b  （OK）
+
+
+四、动态分配与释放内存空间
+	分配内存：void* malloc(int)函数 || new关键字
+			malloc(所需要分配大小的空间)，返回指针，需要强制显示转化为所需要的指针类型
+		eg: Node *head = (Node*) malloc(sizeof(Node));
+			Student *ZhangSan = new Student();
+
+	释放内存：void free(void *ptr)函数 || delete关键字
+			清理内存空间
+		eg：free(head);
+			delete ZhangSan;
+
+
+		注意：	1.需要头文件 malloc.h或stdlib.h
+				2.sizeof(数据类型) 函数返回数据类型的大小
+
+		拓展：	1.void *realloc(void *mem_address, unsigned int newsize) 函数
+					重新分配内存空间，指针名=（数据类型*）realloc（要改变内存大小的指针名，新的大小）
+					采用新分配空白内存+拷贝方式实现重新分配，慎用
